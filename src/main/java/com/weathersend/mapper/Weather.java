@@ -162,7 +162,7 @@ public class Weather {
         Calendar calendar = Calendar.getInstance();
         try {
             writer.write("获取天气中" + "<br>");
-            writer.write("-----天气预报-----");
+            writer.write("-----天气预报-----" + "<br>");
             writer.write("今天是" + getYear(calendar) + "年" + (getMonth(calendar) + 1) +"月" + (getDay(calendar)) + "日"+ getWeekOfDay(calendar)  + "<br>");
         } catch (IOException e) {
             e.printStackTrace();
@@ -209,12 +209,13 @@ public class Weather {
         if(dayOfWeek == 7) { return "星期六";}
         return null;
     }
-    //获取日期
+    //获取天气
     public void getWeather(){
         getWeatherType();
         getWeatherTemperature();
         getWeatherWindForce();
     }
+    //获取天气类型
     public void getWeatherType(){
         String weatherType = weatherMap.get("type").toString();
         try {
@@ -224,6 +225,7 @@ public class Weather {
         }
 
     }
+    //获取天气温度
     public void getWeatherTemperature(){
         try {
             writer.write("最低温度"+ getWeatherLow() + ",最高温度" + getWeatherHigh()  + "<br>");
@@ -243,6 +245,7 @@ public class Weather {
         weatherHigh = stringBuffer.substring(2);
         return weatherHigh;
     }
+    //获取天气风力
     public void getWeatherWindForce(){
         String weatherWind = weatherMap.get("fengli").toString();
         stringBuffer = new StringBuffer(weatherWind);

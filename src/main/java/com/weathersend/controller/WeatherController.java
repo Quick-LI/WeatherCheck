@@ -4,8 +4,6 @@ import com.weathersend.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -17,6 +15,7 @@ public class WeatherController {
     @Autowired
     WeatherService weatherService;
 
+    //根据城市ID获取天气
     @RequestMapping("getWeather")
     public void getWeather(HttpServletResponse response){
         weatherService.getWeather(101010100,response);
